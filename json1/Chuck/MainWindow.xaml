@@ -1,0 +1,20 @@
+﻿<Window x:Class="Chuck.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chuck"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="https://i.redd.it/cdfz5g8yfymz.png"/>
+        </Grid.Background>
+        <Label Content="Chuck Norris Joke" HorizontalAlignment="Left" Margin="275,43,0,0" VerticalAlignment="Top" FontSize="30"/>
+        <ComboBox x:Name="cmbBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Margin="53,120,0,0" Height="27" SelectionChanged="cmbBox_SelectionChanged"/>
+        <Button x:Name="btb" Content="Push" HorizontalAlignment="Left" Margin="608,120,0,0" VerticalAlignment="Top" Width="92" Height="27" Click="btb_Click"/>
+        <TextBlock HorizontalAlignment="Left" Height="200" Margin="91,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="609" Background="#FF8199BC"/>
+        <Label Content="Choose a Category:" HorizontalAlignment="Left" Margin="73,93,0,0" VerticalAlignment="Top" FontSize="15"/>
+
+    </Grid>
+</Window>
