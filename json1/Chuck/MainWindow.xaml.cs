@@ -49,7 +49,7 @@ namespace Chuck
             {
                 using (var client = new HttpClient())
                 {
-                    string jsonData = client.GetStringAsync("https://api.chucknorris.io/jokes/random?category=").Result;
+                    string jsonData = client.GetStringAsync("https://api.chucknorris.io/jokes/random?").Result;
                     Category api = JsonConvert.DeserializeObject<Category>(jsonData);
 
                     txtBox.Text = api.value;
