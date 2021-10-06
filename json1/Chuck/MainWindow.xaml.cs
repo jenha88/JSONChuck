@@ -33,7 +33,7 @@ namespace Chuck
             {
                 string jsonData = client.GetStringAsync("https://api.chucknorris.io/jokes/categories").Result;
 
-                List<string> Category = JsonConvert.DeserializeObject<List<string>>(jsonData);
+                List<string>Category = JsonConvert.DeserializeObject<List<string>>(jsonData);
                 foreach (var item in Category)
                 {
                  
@@ -47,15 +47,14 @@ namespace Chuck
             string s = cmbBox.SelectedItem.ToString();
             using (var client= new HttpClient())
             {
-                string jsonData = client.GetAsync("https://api.chucknorris.io/jokes/random?category=" +s);
+                string jsonData = client.GetStringAsync("https://api.chucknorris.io/jokes/random?category=" + s).Result;
+                Category api = JsonConvert.DeserializeObject<Category>(jsonData);
+
+                txtBox.Text = api.value;
                 
             }
         }
         
-        private void cmbBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Category selecteditem = (Category)cmbBox.SelectedItem;
-
-        }
+     
     }
 }
