@@ -45,14 +45,29 @@ namespace Chuck
         private void btb_Click(object sender, RoutedEventArgs e)
         {
             string s = cmbBox.SelectedItem.ToString();
-            using (var client= new HttpClient())
+            if (s=="all")
             {
-                string jsonData = client.GetStringAsync("https://api.chucknorris.io/jokes/random?category=" + s).Result;
-                Category api = JsonConvert.DeserializeObject<Category>(jsonData);
+                using (var client = new HttpClient())
+                {
+                    string jsonData = client.GetStringAsync("https://api.chucknorris.io/jokes/random?category=").Result;
+                    Category api = JsonConvert.DeserializeObject<Category>(jsonData);
 
-                txtBox.Text = api.value;
-                
+                    txtBox.Text = api.value;
+
+                }
             }
+            else
+            {
+                using (var client = new HttpClient())
+                {
+                    string jsonData = client.GetStringAsync("https://api.chucknorris.io/jokes/random?category=" + s).Result;
+                    Category api = JsonConvert.DeserializeObject<Category>(jsonData);
+
+                    txtBox.Text = api.value;
+
+                }
+            }
+            
         }
         
      
